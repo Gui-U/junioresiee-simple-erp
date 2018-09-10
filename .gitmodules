@@ -1,0 +1,3 @@
+[submodule "jems-docs"]
+	path = jems-docs
+	url = https://github.com/JUNIOR-ESIEE/jems-docs.git

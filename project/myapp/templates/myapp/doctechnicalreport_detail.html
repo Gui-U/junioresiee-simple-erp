@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Doc technique</h1>
+  <h2>Title: {{ doc_tech.tagEtudeNum }}</h2>
+
+  <p><strong>tagEtudeNum:</strong> {{ doc_tech.tagEtudeNum }}</p>
+  <p><strong>tagDocNameShort:</strong> {{ doc_tech.tagDocNameShort }}</p>
+  <p><strong>tagDocName:</strong> {{ doc_tech.tagDocName }}</p>
+  <p><strong>tagDocDate:</strong> {{ doc_tech.tagDocDate }}</p>
+  <p><strong>tagClientCompagny:</strong> {{ doc_tech.tagClientCompagny }}</p>
+  <p><strong>tagCommercialNom:</strong> {{ doc_tech.tagCommercialNom }}</p>
+  <p><strong>tagCommercialPrenom:</strong> {{ doc_tech.tagCommercialPrenom }}</p>
+  <p><strong>tagDocVersion:</strong> {{ doc_tech.tagDocVersion }}</p>
+
+  <a href={% url 'doctech-create' %} class="btn btn-outline-primary">Add a new one</a>
+  <a href={% url 'doctech-update' pk=doc_tech.pk %} class="btn btn-outline-warning">Edit</a>
+  <a href={% url 'doctech-delete' pk=doc_tech.pk %} class="btn btn-outline-danger">Delete</a>
+  <a href={% url 'doctech-pdf' pk=doc_tech.pk %} class="btn btn-success">Download PDF</a>
+
+{% endblock %}
