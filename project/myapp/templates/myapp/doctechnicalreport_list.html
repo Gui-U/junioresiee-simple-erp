@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Doc tech List</h1>
+  {% if doctechnicalreport_list %}
+  <ul>
+    {% for doctechnicalreport in doctechnicalreport_list %}
+      <li>
+        <a href="{{ doctechnicalreport.get_absolute_url }}">{{ doctechnicalreport }}</a> 
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no doctechnicalreports in the system.</p>
+  {% endif %}
+    <a href={% url 'doctech-create' %} class="btn btn-outline-primary">Add a new one</a>
+{% endblock %}

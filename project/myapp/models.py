@@ -34,4 +34,29 @@ class Mandate(models.Model):
         """String for representing the Model object."""
         return f'{self.date_of_begin}'
 
+from django.urls import reverse
+
+class DocTechnicalReport(models.Model):
+    """Model representing a DocTechnicalReport."""
+    tagEtudeNum = models.CharField(max_length=100)
+    tagDocNameShort = models.CharField(max_length=100)
+    tagDocName = models.CharField(max_length=100)
+    tagDocDate = models.CharField(max_length=100)
+    tagClientCompagny = models.CharField(max_length=100)
+    tagCommercialNom = models.CharField(max_length=100)
+    tagCommercialPrenom = models.CharField(max_length=100)
+    tagDocVersion = models.CharField(max_length=100)
+    
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular student instance."""
+        return reverse('doctech-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return f'{self.tagDocNameShort}{self.tagEtudeNum}'
+
+
+
+
 
