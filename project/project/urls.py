@@ -26,6 +26,7 @@ from django.conf.urls import include
 
 urlpatterns += [
     path('backend/', include('myapp.urls')),
+    path('api/', include('restapi.urls')),
 ]
 
 
