@@ -1,7 +1,9 @@
+{
 os: linux,
 sudo: required,
-group: stable,
-language: ruby,
+language: python
+python:
+  - "3.6"
 services:
   - docker
 before_script: [
@@ -12,3 +14,4 @@ after_success: [
   "docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD registry.heroku.com"
   "docker push registry.heroku.com/junioresiee-simple-erp/web"
 ]
+}
