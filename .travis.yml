@@ -1,13 +1,20 @@
 {
-  "language": "ruby",
   "os": "linux",
   "dist": "trusty",
   "sudo": "required",
   "group": "stable",
   "script": [
-    "docker build -t registry.heroku.com/junioresiee-simple-erp/web ."
-    "docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD registry.heroku.com"
+    "docker-compose run --rm notes bundle exec rake spec"
+  ],
+  "language": "generic",
+  "services": [
+    "docker"
+  ],
+  "after_success": [
+    "docker login -u _ -p \"$HEROKU_TOKEN\"  registry.heroku.com",
+    "docker build -t registry.heroku.com/junioresiee-simple-erp/web .",
     "docker push registry.heroku.com/junioresiee-simple-erp/web"
   ]
 }
+
 
