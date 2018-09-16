@@ -1,14 +1,16 @@
 "os": "linux",
 "sudo": "required",
 "group": "stable",
-language: ruby
+language: ruby,
 services:
   - docker
 before_script:
   - echo "Branch... $TRAVIS_BRANCH"
   - docker build -t registry.heroku.com/junioresiee-simple-erp/web .
+script:
+  pass
 after_success:
   - if [ "$TRAVIS_BRANCH" == "ci/travis_heroku" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.heroku.com;
     docker push registry.heroku.com/junioresiee-simple-erp/web;
-fi
+  fi
