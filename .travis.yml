@@ -1,17 +1,17 @@
 {
-os: linux,
-sudo: required,
-language: python
-python:
-  - "3.6"
-services:
-  - docker
-before_script: [
-  "echo Branch... $TRAVIS_BRANCH"
-  "docker build -t registry.heroku.com/junioresiee-simple-erp/web ."
-]
-after_success: [
-  "docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD registry.heroku.com"
-  "docker push registry.heroku.com/junioresiee-simple-erp/web"
-]
+  "os": "linux",
+  "dist": "trusty",
+  "sudo": "required",
+  "group": "stable",
+  "script": [
+    "docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD registry.heroku.com"
+    "docker push registry.heroku.com/junioresiee-simple-erp/web"
+  ],
+  "language": "ruby",
+  before_script: [
+    "echo Branch... $TRAVIS_BRANCH"
+    "docker build -t registry.heroku.com/junioresiee-simple-erp/web ."
+  ]
 }
+
+
