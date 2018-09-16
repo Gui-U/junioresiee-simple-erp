@@ -1,4 +1,7 @@
-sudo: required
+"os": "linux",
+"sudo": "required",
+"group": "stable",
+language: ruby
 services:
   - docker
 before_script:
